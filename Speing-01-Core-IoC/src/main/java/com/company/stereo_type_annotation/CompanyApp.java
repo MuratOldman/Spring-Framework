@@ -11,7 +11,11 @@ public class CompanyApp {
         context.getBean(Selenium.class).getTeachingHours();
         context.getBean(Agile.class).getTeachingHours();
 
-
+/*
+   @ComponentScan can look outside the class ?
+   Answer is yes.
+   @ComponentScan(basePackages="com.company") ==> it checks all classes under the company
+ */
 
     }
 }
