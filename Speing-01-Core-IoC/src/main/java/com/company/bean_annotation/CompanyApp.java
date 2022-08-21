@@ -25,5 +25,8 @@ public class CompanyApp {
 
         Integer integer1 = container.getBean(Integer.class);
         System.out.println(integer1);
+
+        PartTimeMentor partTimeMentor = container.getBean("pt2",PartTimeMentor.class);
+        partTimeMentor.createAccount();
     }
 }
