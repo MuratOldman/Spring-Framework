@@ -32,4 +32,10 @@ public class CompanyApp {
         PartTimeMentor partTimeMentor=container.getBean(PartTimeMentor.class);
         partTimeMentor.createAccount();
     }
+
+    /*
+    Adding multiple beans of the same type into the Spring context
+
+    @Primary  and @Bean(name="nameHere
+     */
 }
