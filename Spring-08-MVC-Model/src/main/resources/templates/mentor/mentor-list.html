@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<table th:border="2">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+    </tr>
+    <tr>
+<!--        <td th:text="${mike.firstName}"></td>-->
+<!--        <td th:text="${mike.lastName}"></td>-->
+<!--        <td th:text="${mike.age}"></td>-->
+<!--        <td th:text="${mike.gender}"></td>-->
+
+        <td th:text="${list.get(0).firstName}"></td>
+        <td th:text="${list.get(0).lastName}"></td>
+        <td th:text="${list.get(0).age}"></td>
+        <td th:text="${list.get(0).gender}"></td>
+
+    </tr>
+    <tr>
+<!--        <td th:text="${tom.firstName}"></td>-->
+<!--        <td th:text="${tom.lastName}"></td>-->
+<!--        <td th:text="${tom.age}"></td>-->
+<!--        <td th:text="${tom.gender}"></td>-->
+
+        <td th:text="${list.get(1).firstName}"></td>
+        <td th:text="${list.get(1).lastName}"></td>
+        <td th:text="${list.get(1).age}"></td>
+        <td th:text="${list.get(1).gender}"></td>
+    </tr>
+    <tr>
+<!--        <td th:text="${amy.firstName}"></td>-->
+<!--        <td th:text="${amy.lastName}"></td>-->
+<!--        <td th:text="${amy.age}"></td>-->
+<!--        <td th:text="${amy.gender}"></td>-->
+
+        <td th:text="${list.get(2).firstName}"></td>
+        <td th:text="${list.get(2).lastName}"></td>
+        <td th:text="${list.get(2).age}"></td>
+        <td th:text="${list.get(2).gender}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
