@@ -2,6 +2,7 @@ package com.company.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -30,6 +31,16 @@ public class CarController {
     public String carInfo3(@RequestParam(value = "make", required = false,defaultValue = "Mercedes") String make, Model model){
         model.addAttribute("make", make);   //if you don't write "make", Mercedes will be assigned  to "make" as a default value
         System.out.println(make);
+
+        return "car/car-info";
+    }
+
+    @RequestMapping("info/{make}/{year}")  //localhost:8080/car/info/Suzuki/1998
+    public String getInfo(@PathVariable String make,@PathVariable Integer year, Model model){
+        model.addAttribute("make", make);
+        model.addAttribute("year",year);
+
+
 
         return "car/car-info";
     }
