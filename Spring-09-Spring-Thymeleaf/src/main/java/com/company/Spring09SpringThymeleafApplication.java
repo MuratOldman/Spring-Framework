@@ -1,4 +1,4 @@
-package com.company.spring09springthymeleaf;
+package com.company;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
