@@ -17,5 +17,14 @@
 <a th:href="@{https://www.amazon.com}">amazon</a>
 <a th:href="@{/student/welcome}">welcome page</a>
 
+<!--Adding parameter to the link-->
+<a th:href="@{/student/welcome(${students.get(0).firstName})}">parameter</a>
+
+<!--each loop-->
+
+<ul>
+    <li th:each="each:${students}" th:text="${each.firstName}">Name</li>
+</ul>
+
 </body>
 </html>
