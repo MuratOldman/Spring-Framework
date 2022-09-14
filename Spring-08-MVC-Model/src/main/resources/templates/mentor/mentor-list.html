@@ -52,5 +52,27 @@
     </tr>
 </table>
 
+
+<table th:border="1" data-th-color="red">
+    <thead>
+    <tr>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Gender</td>
+        <td>Age</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="mentor:${list}">
+        <td th:text="${mentor.firstName}"></td>
+        <td th:text="${mentor.lastName}"></td>
+        <td th:text="${mentor.gender}"></td>
+        <td th:text="${mentor.age}"></td>
+    </tr>
+    </tbody>
+
+
+</table>
+
 </body>
 </html>
