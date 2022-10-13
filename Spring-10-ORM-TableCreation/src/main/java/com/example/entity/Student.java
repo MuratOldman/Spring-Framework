@@ -1,6 +1,10 @@
 package com.example.entity;
 
+import com.example.enums.Gender;
+
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Entity
 @Table(name = "students")
@@ -16,4 +20,17 @@ public class Student {
     @Column(name = "studentLastName")
     private String lastName;
     private String email;
+
+    @Transient // with this annotation "city" is not available as a column in "students" table
+    private String city;
+
+    @Column(columnDefinition = "DATE")
+    private LocalDate birthdate;
+    @Column(columnDefinition = "TIME")
+    private LocalTime birthTime;
+    @Column(columnDefinition = "TIMESTAMP")
+    private LocalDate birthDateTime;
+
+    @Enumerated(EnumType.STRING) //without this annotation gender type displayed as integer.With this annotation enum type change to varchar
+    private Gender gender;
 }
