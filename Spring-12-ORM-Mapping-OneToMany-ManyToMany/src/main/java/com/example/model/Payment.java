@@ -16,7 +16,7 @@ public class Payment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(columnDefinition = "DATE")
     private LocalDate createdDate;
@@ -26,6 +26,12 @@ public class Payment {
 
     @OneToOne(cascade = CascadeType.ALL)
     private PaymentDetail paymentDetail;
+
+    @ManyToOne
+    private Merchant merchant;
+
+    @ManyToOne
+    private Customer customer;
 
     public Payment(LocalDate createdDate, BigDecimal amount, Status paymentStatus) {
         this.createdDate = createdDate;
