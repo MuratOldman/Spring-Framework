@@ -2,9 +2,11 @@ package com.example.repository;
 
 import com.example.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 public interface EmployeeRepository extends JpaRepository<Employee,Long> {
 
@@ -38,6 +40,16 @@ public interface EmployeeRepository extends JpaRepository<Employee,Long> {
     //Display all employees that do not have email address
     List<Employee> findByEmailIsNull();
 
+
+    @Query("Select e from Employee e where e.email='sdubber7@t-online.de'")
+    Employee getEmployeeDetail();
+
+    @Query("SELECT e.salary from Employee e where e.email='sdubber7@t-online.de'")
+    Integer getEmployeeSalary();
+    @Query("SELECT e from Employee e where e.email=?1")
+    Optional <Employee> getEmployeeDetail(String email);
+    @Query("select e from Employee e where e.email=?1 and e.salary=?2")
+    Employee getEmployeeDetail(String email, int salary);
 
 
 
