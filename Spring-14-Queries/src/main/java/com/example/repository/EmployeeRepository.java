@@ -2,7 +2,10 @@ package com.example.repository;
 
 import com.example.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -95,7 +98,20 @@ public interface EmployeeRepository extends JpaRepository<Employee,Long> {
     @Query(value = "select * from Employees where salary ?1",nativeQuery = true)
     List<Employee> readEmployeeDetailsBySalary(int salary);
 
+    @Query("select e from Employee e where e.salary= :salary")
+    List<Employee> getEmployeeBySalary(@Param("salary") int salary);
 
+    //update with JPQL
+    @Modifying
+    @Transactional
+    @Query("update Employee e set e.email='email@email.com' where e.id=:id")
+    void updateEmployeeJPQL(@Param("id") int id);
+
+    //update with native query
+    @Modifying
+    @Transactional
+    @Query(value = "update employees set email='email@email.com' where id=:id",nativeQuery = true )
+    void updateEmployeeNativeQuery();
 
 
 }
